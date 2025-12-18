@@ -85,11 +85,11 @@ static async Task Main(string[] args)           //Uses args and await
 */
 //However, returning int or Task<int> enables the program to communicate status information to other programs or scripts that invoke the executable file.
 
-class MainReturnValTest
+/*class MainReturnValTest
 {
     static int Main()
     {
         //...
         return 0;
     }
-}
+}*/
