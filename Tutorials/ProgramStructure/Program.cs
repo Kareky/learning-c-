@@ -64,12 +64,32 @@ return 0;*/
 //Main method can be declared with or without a string[] parameter that contains command-line arguments.
 //Examples of main method declarations:
 /*
-static void Main() { }
-static int Main() { }
-static void Main(string[] args) { }
-static int Main(string[] args) { }
-static async Task Main() { }
-static async Task<int> Main() { }
-static async Task Main(string[] args) { }
-static async Task<int> Main(string[] args) { }
+static void Main() { }                          //No use of args or await
+static int Main() { }                           //No use of args or await
+static void Main(string[] args) { }             //Uses args but not await
+static int Main(string[] args) { }              //Uses args but not await
+static async Task Main() { }                    //Uses await but not args
+static async Task<int> Main() { }               //Uses await but not args
+static async Task Main(string[] args) { }       //Uses args and await   
+static async Task<int> Main(string[] args) { }  //Uses args and await
 */
+
+//The preceding examples don't specify an access modifier, so they're implicitly private by default.
+
+//If the return value from Main isn't used, returning void or Task allows for slightly simpler code.
+/*
+static void Main()                              //No use of args or await
+static void Main(string[] args)                 //Uses args but not await
+static async Task Main()                        //Uses await but not args
+static async Task Main(string[] args)           //Uses args and await
+*/
+//However, returning int or Task<int> enables the program to communicate status information to other programs or scripts that invoke the executable file.
+
+class MainReturnValTest
+{
+    static int Main()
+    {
+        //...
+        return 0;
+    }
+}
